@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, sans-serif;
+    /* Orange and magenta gradient */
+    background: #cccccc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Remove the name background */
+    background-image: none;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden; /* Ensures the basketballs stay within the container */
+}
+
+/* Basketball animation */
+.basketball {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAAwAAAACUGvDxAAACVUlEQVRoge2YTUsUYRjHf90NqWJjbbRSseLgERsRLyF2WCwiCFZREfAFY0FYYbEWQWi2EBEkFohYJCLYJEq0kC1bQeXOcJnM3HPuuc85dx7nExgEzzlz7plzzvmd89wnc13m0lVqVYFQ87fJ+H4J6bB7wQv605+mE+n2vU7kC2S1+gN5ZDh+3iU3e/zY8+L2/LzRzH64k4G8uK3K7D8J8lU9y+b+l/Hh/5bJ9E7rL+UfX5bY7cM1p8hR0m0SEPwS0WEmEp4I3v13z/K8/L/6s9wLz472/j4fR1a+I7L/1Y+p9f+lU1Qf0V8v7x8/3a4g62wXw4fM5C5n5P9F3X3Y8b7kL3iX4s/w4I2+p4J5F6iF+s28g0S9lG2u+5NdgXh5vEw+mQ98S/B6b4F87Yyq/mY845mK8l4h8/L6F1F6iF+0vE8hP9N+X9c5r5H/X9b+mG6S5J8n+Q7Jb7sW0R6qH/iWl+o7pXy9g/qf43l6J8lJ/m577x8c55h101/P708/f0r2V6Mfxv7J5k3yX+yNl39s6MevpXk94W9x7t6m4+qQ+cR9XjR3e2i0x9b49+X9Vd5z/r60n4W6g8Qc89X2W+xRk/4T/X0l3mP9vWkeYvH+T0qWqP1o+z6i1T3I1k6e9P/Y9j6z1g78s+3+r71X1/q2sP0X+e9K28+g8+lG14v8G9u6/fO594O93/r38m9X264H5h/jW7Y5rEa20o0+9eQc3J+/zG954v3/D5H5QhF+Y9r73sWf7L1f2sWb/EPl/eH6+vL34f/n38599m0P/f35z9j9L9T64v6O/g/Q/lH6O0X7C5D67lR65yMh2g/V/X4n3f4j4W+P/Yf6yC7d/Nf3+X35b+X2k+78YfE/2/s4T+O5n2t4FzR9VlqVYFVdAB39H+sQd0tgAAAABJRU5ErkJggg==') center/cover no-repeat; /* Replace with your basketball image */
+    animation: roll 4s linear infinite, move 10s linear infinite;
+    border-radius: 50%;
+    z-index: 1; /* Ensure basketballs are above the background but below the content */
+}
+
+/* Define different starting positions */
+.basketball:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s, 0s;
+}
+
+.basketball:nth-child(2) {
+    top: 30%;
+    right: 5%;
+    animation-delay: 1s, 2s;
+}
+
+.basketball:nth-child(3) {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 2s, 5s;
+}
+
+.basketball:nth-child(4) {
+    bottom: 5%;
+    right: 10%;
+    animation-delay: 3s, 8s;
+}
+
+@keyframes roll {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(5px) translateY(10px);
+    }
+    50% {
+        transform: translateX(0) translateY(20px);
+    }
+    75% {
+        transform: translateX(-5px) translateY(10px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: #333;
+    /* Darker text color */
+}
+
+.form-container,
+.search-container,
+.stats-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Translucent white background */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    /* Darker label text */
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #FF9800; /* Orange button */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #E65100; /* Darker orange on hover */
+}
+
+#resultados {
+    margin-top: 10px;
+}
+
+#resultados p {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+#resultados p:last-child {
+    border-bottom: none;
+}
+
+.watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+#login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#login-container input[type="tel"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Style for the rules container */
+.rules-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.rules-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; /* Allows vertical resizing */
+}
